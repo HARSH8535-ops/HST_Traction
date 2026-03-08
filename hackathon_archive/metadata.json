@@ -1,0 +1,8 @@
+{
+  "name": "TractionPal",
+  "description": "An intelligence system for content creators to analyze patterns, predict traction, and explore creative directions using advanced AI insights.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}

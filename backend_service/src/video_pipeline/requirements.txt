@@ -1,0 +1,6 @@
+boto3
+requests
+ffmpeg-python
+moviepy
+Pillow
+requests>=2.28.0

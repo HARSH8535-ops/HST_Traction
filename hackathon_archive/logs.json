@@ -1,0 +1,34 @@
+﻿{
+    "events": [
+        {
+            "logStreamName": "AllTraffic/69208f02b644b968cfb79613e035365a-dae1151481524432937cff000d4a4e33",
+            "timestamp": 1772911859570,
+            "message": "This is an experimental beta features, which allows downloading model from the Hugging Face Hub on start up. It loads the model defined in the env var `HF_MODEL_ID`",
+            "ingestionTime": 1772911860834,
+            "eventId": "39537255639723675907594284512800446039442907896406802432"
+        },
+        {
+            "logStreamName": "AllTraffic/69208f02b644b968cfb79613e035365a-dae1151481524432937cff000d4a4e33",
+            "timestamp": 1772911859641,
+            "message": "/opt/conda/lib/python3.10/site-packages/huggingface_hub/file_download.py:1194: UserWarning: `local_dir_use_symlinks` parameter is deprecated and will be ignored. The process to download files to a local folder has been updated and do not rely on symlinks anymore. You only need to pass a destination folder as`local_dir`.",
+            "ingestionTime": 1772911860834,
+            "eventId": "39537255641307028816689958755849482036800941563331411969"
+        },
+        {
+            "logStreamName": "AllTraffic/69208f02b644b968cfb79613e035365a-dae1151481524432937cff000d4a4e33",
+            "timestamp": 1772911859641,
+            "message": "For more details, check out https://huggingface.co/docs/huggingface_hub/main/en/guides/download#download-files-to-local-folder.",
+            "ingestionTime": 1772911860834,
+            "eventId": "39537255641307028816689958755849482036800941563331411970"
+        },
+        {
+            "logStreamName": "AllTraffic/69208f02b644b968cfb79613e035365a-dae1151481524432937cff000d4a4e33",
+            "timestamp": 1772911859641,
+            "message": "  warnings.warn(",
+            "ingestionTime": 1772911860834,
+            "eventId": "39537255641307028816689958755849482036800941563331411971"
+        },
+        {
+            "logStreamName": "AllTraffic/69208f02b644b968cfb79613e035365a-dae1151481524432937cff000d4a4e33",
+            "timestamp": 1772911869148,
+            "message": 

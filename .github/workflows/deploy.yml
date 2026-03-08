@@ -1,0 +1,67 @@
+name: Deploy MVP Infrastructure
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install CDK CLI
+        run: npm install -g aws-cdk
+
+      - name: Install Backend Dependencies
+        working-directory: ./backend_service
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install boto3
+
+      - name: Deploy Backend Stack
+        working-directory: ./backend_service
+        run: |
+          cdk bootstrap
+          cdk deploy --require-approval never --outputs-file outputs.json
+          echo "API_URL=$(jq -r '.BackendStack.ApiEndpoint' outputs.json)" >> $GITHUB_ENV
+          echo "SITE_BUCKET=$(jq -r '.BackendStack.SiteBucketName' outputs.json)" >> $GITHUB_ENV
+          echo "CLOUDFRONT_URL=$(jq -r '.BackendStack.CloudFrontUrl' outputs.json)" >> $GITHUB_ENV
+
+      - name: Install Frontend Dependencies
+        run: npm ci
+
+      - name: Build Frontend React App
+        run: npm run build
+        env:
+          VITE_API_URL: ${{ env.API_URL }}
+
+      - name: Deploy Frontend to S3
+        run: |
+          aws s3 sync dist/ s3://${{ env.SITE_BUCKET }}/ --delete
+
+      - name: Summarize Deployment
+        run: |
+          echo "## Deployment Successful 🚀" >> $GITHUB_STEP_SUMMARY
+          echo "Backend API URL: ${{ env.API_URL }}" >> $GITHUB_STEP_SUMMARY
+          echo "Frontend App URL: ${{ env.CLOUDFRONT_URL }}" >> $GITHUB_STEP_SUMMARY

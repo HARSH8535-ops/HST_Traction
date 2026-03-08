@@ -1,0 +1,50 @@
+This is an experimental beta features, which allows downloading model from the Hugging Face Hub on start up. It loads the model defined in the env var `HF_MODEL_ID`
+/opt/conda/lib/python3.10/site-packages/huggingface_hub/file_download.py:1194: UserWarning: `local_dir_use_symlinks` parameter is deprecated and will be ignored. The process to download files to a local folder has been updated and do not rely on symlinks anymore. You only need to pass a destination folder as`local_dir`.
+For more details, check out https://huggingface.co/docs/huggingface_hub/main/en/guides/download#download-files-to-local-folder.
+  warnings.warn(
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files:  33%|███▎      | 3/9 [00:00<00:00, 21.10it/s]Fetching 9 files:  67%|██████▋   | 6/9 [00:09<00:05,  1.85s/it]Fetching 9 files: 100%|██████████| 9/9 [00:09<00:00,  1.06s/it]
+WARNING - Overwriting /.sagemaker/mms/models/google__flan-t5-base ...
+Warning: MMS is using non-default JVM parameters: -XX:-UseContainerSupport
+WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
+2026-03-07 19:31:10,561 main ERROR Unable to create file logs/access_log.log java.io.IOException: Could not create directory /logs
+	at org.apache.logging.log4j.core.util.FileUtils.mkdir(FileUtils.java:120)
+	at org.apache.logging.log4j.core.util.FileUtils.makeParentDirs(FileUtils.java:137)
+	at org.apache.logging.log4j.core.appender.rolling.RollingFileManager$RollingFileManagerFactory.createManager(RollingFileManager.java:732)
+	at org.apache.logging.log4j.core.appender.rolling.RollingFileManager$RollingFileManagerFactory.createManager(RollingFileManager.java:716)
+	at org.apache.logging.log4j.core.appender.AbstractManager.getManager(AbstractManager.java:114)
+	at org.apache.logging.log4j.core.appender.OutputStreamManager.getManager(OutputStreamManager.java:100)
+	at org.apache.logging.log4j.core.appender.rolling.RollingFileManager.getFileManager(RollingFileManager.java:217)
+	at org.apache.logging.log4j.core.appender.RollingFileAppender$Builder.build(RollingFileAppender.java:146)
+	at org.apache.logging.log4j.core.appender.RollingFileAppender$Builder.build(RollingFileAppender.java:62)
+	at org.apache.logging.log4j.core.config.plugins.util.PluginBuilder.build(PluginBuilder.java:122)
+	at org.apache.logging.log4j.core.config.AbstractConfiguration.createPluginObject(AbstractConfiguration.java:1120)
+	at org.apache.logging.log4j.core.config.AbstractConfiguration.createConfiguration(AbstractConfiguration.java:1045)
+	at org.apache.logging.log4j.core.config.AbstractConfiguration.createConfiguration(AbstractConfiguration.java:1037)
+	at org.apache.logging.log4j.core.config.AbstractConfiguration.doConfigure(AbstractConfiguration.java:651)
+	at org.apache.logging.log4j.core.config.AbstractConfiguration.initialize(AbstractConfiguration.java:247)
+	at org.apache.logging.log4j.core.config.AbstractConfiguration.start(AbstractConfiguration.java:293)
+	at org.apache.logging.log4j.core.LoggerContext.setConfiguration(LoggerContext.java:626)
+	at org.apache.logging.log4j.core.LoggerContext.reconfigure(LoggerContext.java:699)
+	at org.apache.logging.log4j.core.LoggerContext.reconfigure(LoggerContext.java:716)
+	at org.apache.logging.log4j.core.LoggerContext.start(LoggerContext.java:270)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:245)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:47)
+	at org.apache.logging.log4j.LogManager.getContext(LogManager.java:176)
+	at org.apache.logging.slf4j.Log4jLoggerFactory.getContext(Log4jLoggerFactory.java:54)
+	at org.apache.logging.log4j.spi.AbstractLoggerAdapter.getLogger(AbstractLoggerAdapter.java:47)
+	at org.apache.logging.slf4j.Log4jLoggerFactory.getLogger(Log4jLoggerFactory.java:33)
+	at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:363)
+	at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:388)
+	at com.amazonaws.ml.mms.servingsdk.impl.PluginsManager.<init>(PluginsManager.java:30)
+	at com.amazonaws.ml.mms.servingsdk.impl.PluginsManager.<clinit>(PluginsManager.java:29)
+	at com.amazonaws.ml.mms.ModelServer.main(ModelServer.java:84)
+2026-03-07 19:31:10,566 main ERROR Could not create plugin of type class org.apache.logging.log4j.core.appender.RollingFileAppender for element RollingFile: java.lang.IllegalStateException: ManagerFactory [org.apache.logging.log4j.core.appender.rolling.RollingFileManager$RollingFileManagerFactory@7193666c] unable to create manager for [logs/access_log.log] with data [org.apache.logging.log4j.core.appender.rolling.RollingFileManager$FactoryData@20deea7f[pattern=logs/access_log.%d{dd-MMM}.log.gz, append=true, bufferedIO=true, bufferSize=8192, policy=CompositeTriggeringPolicy(policies=[SizeBasedTriggeringPolicy(size=10485760), TimeBasedTriggeringPolicy(nextRolloverMillis=0, interval=1, modulate=false)]), strategy=DefaultRolloverStrategy(min=1, max=5, useMax=true), advertiseURI=null, layout=%d{ISO8601} - %m%n, filePermissions=null, fileOwner=null]] java.lang.IllegalStateException: ManagerFactory [org.apache.logging.log4j.core.appender.rolling.RollingFileManager$RollingFileManagerFactory@7193666c] unable to create manager for [logs/access_log.log] with data [org.apache.logging.log4j.core.appender.rolling.RollingFileManager$FactoryData@20deea7f[pattern=logs/access_log.%d{dd-MMM}.log.gz, append=true, bufferedIO=true, bufferSize=8192, policy=CompositeTriggeringPolicy(policies=[SizeBasedTriggeringPolicy(size=10485760), TimeBasedTriggeringPolicy(nextRolloverMillis=0, interval=1, modulate=false)]), strategy=DefaultRolloverStrategy(min=1, max=5, useMax=true), advertiseURI=null, layout=%d{ISO8601} - %m%n, filePermissions=null, fileOwner=null]]
+	at org.apache.logging.log4j.core.appender.AbstractManager.getManager(AbstractManager.java:116)
+	at org.apache.logging.log4j.core.appender.OutputStreamManager.getManager(OutputStreamManager.java:100)
+	at org.apache.logging.log4j.core.appender.rolling.RollingFileManager.getFileManager(RollingFileManager.java:217)
+	at org.apache.logging.log4j.core.appender.RollingFileAppender$Builder.build(RollingFileAppender.java:146)
+	at org.apache.logging.log4j.core.appender.RollingFileAppender$Builder.build(RollingFileAppender.java:62)
+	at org.apache.logging.log4j.core.config.plugins.util.PluginBuilder.build(PluginBuilder.java:122)
+	at org.apache.logging.log4j.core.config.AbstractConfiguration.createPluginObject(AbstractConfiguration.java:1120)
+	at org.apache.logging.log4j.core.config.AbstractConfiguration.createConfiguration(AbstractConfiguration.java:1045)
+	at org.apache.logging.log4j.core.config.AbstractConfiguration.createConfiguration(AbstractConfiguration.java:1037)
