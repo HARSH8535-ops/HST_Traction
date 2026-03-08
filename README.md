@@ -1,4 +1,4 @@
-# ⚡ TractionPal
+#  TractionPal
 
 AI-powered content creation and growth strategy platform — built for the **AI for Bharat** Hackathon.
 
@@ -6,7 +6,7 @@ TractionPal is a full-stack web application that helps content creators research
 
 ---
 
-## ✨ Features
+##  Features
 
 | Module | Description |
 |---|---|
@@ -25,7 +25,7 @@ TractionPal is a full-stack web application that helps content creators research
 
 ---
 
-## 🏗️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 - **React + TypeScript** — UI framework
@@ -81,7 +81,7 @@ This change keeps the repository easier to navigate and prepares the project for
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - **Node.js** 18+ and **npm** or **pnpm**
@@ -129,7 +129,7 @@ Open http://localhost:5173 in your browser (default Vite address).
 
 ---
 
-## ☁️ Backend Deployment (AWS CDK)
+##  Backend Deployment (AWS CDK)
 
 The backend infrastructure is defined using **AWS CDK (Python)**.
 
@@ -160,7 +160,7 @@ cdk deploy
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run tests
@@ -174,7 +174,7 @@ Test files are colocated in the `services/` directory (for example `agentIntegra
 
 ---
 
-## 🤖 AI Agent System
+##  AI Agent System
 
 TractionPal includes a full **AI Agent lifecycle management** system:
 
@@ -185,7 +185,7 @@ TractionPal includes a full **AI Agent lifecycle management** system:
 
 ---
 
-## 🔒 Privacy & Security
+##  Privacy & Security
 
 - All sensitive data is encrypted using a configurable `ENCRYPTION_KEY`.
 - A full **audit log** tracks actions within the workspace.
@@ -193,6 +193,6 @@ TractionPal includes a full **AI Agent lifecycle management** system:
 
 ---
 
-## 🙌 Built With
+##  Built With
 
 This project was built as part of the **AI for Bharat** Hackathon, demonstrating how AI can empower Indian content creators with world-class tools for ideation, production, and growth.
